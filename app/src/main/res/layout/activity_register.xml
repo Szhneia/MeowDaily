@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="32dp"
+        android:paddingTop="40dp"
+        android:paddingBottom="80dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create an account"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:layout_marginBottom="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="14sp"
+            android:textColor="#999999"/>
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_input"
+            android:paddingHorizontal="20dp"
+            android:inputType="textPersonName"
+            android:textColor="#000000"
+            android:longClickable="true"
+            android:textIsSelectable="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="14sp"
+            android:textColor="#999999"/>
+        <EditText
+            android:id="@+id/etEmailReg"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_input"
+            android:paddingHorizontal="20dp"
+            android:inputType="textEmailAddress"
+            android:textColor="#000000"
+            android:longClickable="true"
+            android:textIsSelectable="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textSize="14sp"
+            android:textColor="#999999"/>
+        <EditText
+            android:id="@+id/etPasswordReg"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_input"
+            android:paddingHorizontal="20dp"
+            android:inputType="textPassword"
+            android:textColor="#000000"
+            android:longClickable="true"
+            android:textIsSelectable="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm password"
+            android:textSize="14sp"
+            android:textColor="#999999"/>
+        <EditText
+            android:id="@+id/etConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/rounded_input"
+            android:paddingHorizontal="20dp"
+            android:inputType="textPassword"
+            android:textColor="#000000"
+            android:longClickable="true"
+            android:textIsSelectable="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textSize="16sp"
+            android:textColor="#000000"/>
+        <RadioGroup
+            android:id="@+id/rgGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp">
+            <RadioButton
+                android:id="@+id/rbMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:textColor="#000000"
+                app:buttonTint="#000000"
+                android:layout_marginEnd="30dp"/>
+            <RadioButton
+                android:id="@+id/rbFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:textColor="#000000"
+                app:buttonTint="#000000"/>
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hobby"
+            android:textSize="16sp"
+            android:textColor="#000000"/>
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp">
+
+            <CheckBox android:id="@+id/cbCoding" android:layout_width="150dp" android:layout_height="wrap_content" android:text="Coding" android:textColor="#000000" app:buttonTint="#000000"/>
+            <CheckBox android:id="@+id/cbSwimming" android:layout_width="150dp" android:layout_height="wrap_content" android:text="Swimming" android:textColor="#000000" app:buttonTint="#000000"/>
+
+            <CheckBox android:id="@+id/cbReading" android:layout_width="150dp" android:layout_height="wrap_content" android:text="Reading" android:textColor="#000000" app:buttonTint="#000000"/>
+            <CheckBox android:id="@+id/cbGaming" android:layout_width="150dp" android:layout_height="wrap_content" android:text="Gaming" android:textColor="#000000" app:buttonTint="#000000"/>
+
+            <CheckBox android:id="@+id/cbTravelling" android:layout_width="150dp" android:layout_height="wrap_content" android:text="Travelling" android:textColor="#000000" app:buttonTint="#000000"/>
+            <CheckBox android:id="@+id/cbMusic" android:layout_width="150dp" android:layout_height="wrap_content" android:text="Music" android:textColor="#000000" app:buttonTint="#000000"/>
+        </GridLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            android:textSize="14sp"
+            android:textColor="#999999"
+            android:layout_marginTop="16dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerLocation"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/rounded_input"
+            android:paddingHorizontal="10dp" />
+
+        <Button
+            android:id="@+id/btnGetStarted"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Get started"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/rounded_button"
+            app:backgroundTint="@null" />
+
+    </LinearLayout>
+</ScrollView>
