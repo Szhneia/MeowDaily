@@ -35,6 +35,13 @@ Aplikasi Android ini dibuat untuk memenuhi tugas pengembangan aplikasi mobile. A
 2. Login: Pengguna memasukkan email dan kata sandi yang telah didaftarkan. Sistem akan memvalidasi kecocokan data dengan catatan di SharedPreferences.
 3. Forgot Password: Jika pengguna tidak dapat masuk, mereka dapat mengakses halaman ini untuk memasukkan email terdaftar dan membuat kata sandi baru.
 
+**Screenshot UI**
+![1](https://github.com/user-attachments/assets/f99e627a-2e1f-41e9-aae6-a5527f6d12ca)
+![2](https://github.com/user-attachments/assets/96d4dedb-2127-46f7-84cf-0eee0cfb05c4)
+![3](https://github.com/user-attachments/assets/51fc29e7-9144-4a74-95a8-6e17d57862d1)
+![4](https://github.com/user-attachments/assets/931e5eb9-feb7-403c-9884-641b73fefa7c)
+
+
 **Video Demo**
 
 https://github.com/user-attachments/assets/c1988f62-3bf0-4f91-b9ac-861c06dca089
