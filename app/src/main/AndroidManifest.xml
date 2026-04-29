@@ -26,7 +26,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".HistoryActivity" android:exported="false" />
+        <activity android:name=".ProfileActivity" android:exported="false" />
+        <activity android:name=".SeminarFormActivity" android:exported="false" />
+        <activity android:name=".HomeActivity" android:exported="false" />
+        <activity android:name=".ResultActivity" />
         <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".SeminarListActivity" />
 
     </application>
 

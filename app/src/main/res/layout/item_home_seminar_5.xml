@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardSeminar5"
+    android:layout_width="match_parent"
+    android:layout_height="165dp"
+    android:layout_marginTop="18dp"
+    android:background="@drawable/bg_meow_card"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="14dp">
+
+    <FrameLayout
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:background="@drawable/bg_image_placeholder"
+        android:clipToOutline="true"
+        android:padding="0dp">
+
+        <ImageView
+            android:id="@+id/imgSeminar5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Seminar Image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cat_home" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="14dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvSeminarTitle5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="From Wild Cats to House Cats"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvSeminarDesc5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:lineSpacingExtra="2dp"
+            android:maxLines="3"
+            android:text="Discover how wild cats slowly became the pets we know today."
+            android:textColor="#000000"
+            android:textSize="11.5sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvSeminarDate5"
+                android:layout_width="92dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_meow_button_outline"
+                android:gravity="center"
+                android:text="Tue, 29th Feb"
+                android:textColor="#000000"
+                android:textSize="9.5sp" />
+
+            <Button
+                android:id="@+id/btnJoin5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="7dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_meow_button_black"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:text="Join Seminar"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="9.5sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

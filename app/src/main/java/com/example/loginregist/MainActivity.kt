@@ -1,4 +1,4 @@
-package com.example.loginregist // Sesuaikan package kamu
+package com.example.loginregist
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,59 +9,65 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Selalu tampilkan halaman login saat app dibuka
         setContentView(R.layout.activity_main)
 
-        // 1. HUBUNGKAN SEMUA KOMPONEN DARI XML
         val etEmail = findViewById<EditText>(R.id.etEmail)
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
         val textRegister = findViewById<TextView>(R.id.textRegister)
         val tvForgotPassword = findViewById<TextView>(R.id.tvForgotPassword)
 
-        // 2. LOGIKA PINDAH KE HALAMAN REGISTER
         textRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
 
-        // 3. LOGIKA PINDAH KE HALAMAN FORGOT PASSWORD
         tvForgotPassword.setOnClickListener {
             val intent = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
 
-        // 4. LOGIKA TOMBOL LOGIN DIKLIK
         btnLogin.setOnClickListener {
-            val inputEmail = etEmail.text.toString()
-            val inputPassword = etPassword.text.toString()
+            val emailInput = etEmail.text.toString().trim()
+            val passInput = etPassword.text.toString()
 
-            // Buka memori HP (SharedPreferences)
-            val sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
-            val savedEmail = sharedPreferences.getString("SAVED_EMAIL", null)
-            val savedPassword = sharedPreferences.getString("SAVED_PASSWORD", null)
-
-            // Cek apakah ada yang kosong
-            if (inputEmail.isEmpty() || inputPassword.isEmpty()) {
-                Toast.makeText(this, "Tolong isi Email dan Password!", Toast.LENGTH_SHORT).show()
+            if (emailInput.isEmpty() || passInput.isEmpty()) {
+                Toast.makeText(this, "Isi email dan password dulu ya!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Skenario 1: Email belum terdaftar atau salah
-            if (savedEmail == null || savedEmail != inputEmail) {
-                Toast.makeText(this, "Akun belum terdaftar, silakan registrasi dulu.", Toast.LENGTH_LONG).show()
+            val sharedPref = getSharedPreferences("DataUser", MODE_PRIVATE)
 
-                // Skenario 2: Email benar, tapi Password salah
-            } else if (savedPassword != inputPassword) {
-                etPassword.error = "Password salah, masukkan password yang benar"
+            val savedEmail = sharedPref.getString("email_save", "") ?: ""
+            val savedPassOld = sharedPref.getString("pass_save", "") ?: ""
+            val savedPassNew = sharedPref.getString("password_save", "") ?: ""
 
-                // Skenario 3: Keduanya Benar!
+            val emailMatch = emailInput == savedEmail
+            val passwordMatch = passInput == savedPassOld || passInput == savedPassNew
+
+            if (emailMatch && passwordMatch) {
+                sharedPref.edit()
+                    .putBoolean("is_logged_in", true)
+                    .apply()
+
+                Toast.makeText(this, "Login Berhasil! Halo $savedEmail", Toast.LENGTH_LONG).show()
+
+                val intent = Intent(this, HomeActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                intent.putExtra("USER_EMAIL", emailInput)
+                startActivity(intent)
+                finish()
             } else {
-                Toast.makeText(this, "Login Berhasil! Selamat Datang.", Toast.LENGTH_SHORT).show()
-                // (Nanti kodingan pindah ke halaman Dashboard/Home ditaruh di sini)
+                Toast.makeText(
+                    this,
+                    "Email atau Password salah / belum terdaftar!",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }

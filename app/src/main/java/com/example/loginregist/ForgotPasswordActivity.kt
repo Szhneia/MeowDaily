@@ -31,20 +31,18 @@ class ForgotPasswordActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Buka memori HP
-            val sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
-            val savedEmail = sharedPreferences.getString("SAVED_EMAIL", null)
+            // CUMA GANTI BARIS INI: Biar nyambung ke data Register yang tadi
+            val sharedPreferences = getSharedPreferences("DataUser", MODE_PRIVATE)
+            val savedEmail = sharedPreferences.getString("email_save", null)
 
-            // Cek apakah email yang dimasukkan sama dengan email yang terdaftar
             if (savedEmail != null && savedEmail == inputEmail) {
-                // Berhasil! Timpa password lama dengan password baru
+
                 val editor = sharedPreferences.edit()
-                editor.putString("SAVED_PASSWORD", newPass)
+                // CUMA GANTI BARIS INI: Biar numpuk password yang lama
+                editor.putString("pass_save", newPass)
                 editor.apply()
 
                 Toast.makeText(this, "Password berhasil direset! Silakan Login.", Toast.LENGTH_LONG).show()
-
-                // Tutup halaman reset password dan kembali ke Login dengan animasi mulus
                 finish()
 
             } else {
